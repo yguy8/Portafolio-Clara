@@ -4,8 +4,12 @@
     --morado-oscuro:#fee801; 
     --amarillo: #cb0c59;
     --icono-color:black;
+    --a-hover:#5c6575;
   }
-  
+  html{
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--negro);
     color: var(--blanco);
@@ -20,7 +24,9 @@
   --morado-oscuro:#cb0c59; 
   --amarillo: #fee801;
   --icono-color:white;
+  --a-hover:cadetblue;
 }
+
   a {
     color: var(--blanco);
     text-decoration: none;
@@ -29,20 +35,30 @@
     padding-left: 2rem;
   }
 
-.navbar {
-  padding: 1rem;
-  border-radius: 10px;
-  background-color: var(--morado-oscuro);
-  position: sticky;
-  top: 0; /* para que sticky funcione */
-  margin: 0; /* en lugar de fit-content */
-  z-index: 1000;
-}
+  
+  .navbar {
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: var(--morado-oscuro);
+    position: sticky;
+    top: 0; /* para que sticky funcione */
+    margin: 0; /* en lugar de fit-content */
+    z-index: 1000;
+  }
+
+  .nav-block-left, .nav-block-right {
+    flex: 1; /* Ambos bloques intentan ocupar el mismo espacio */
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-block-right {
+    justify-content: flex-end; /* Empuja los botones al extremo derecho */
+  }
 
 
 .navbar-collapse {
     align-items: center;
-    justify-content: space-between;
 }
 
 .navbar .nav-link {
@@ -54,6 +70,7 @@
 }
 .navbar a:hover{
     color: var(--amarillo);
+    background-color: var(--a-hover);
 }
   
 /* Botón minimalista */
@@ -63,7 +80,6 @@
   cursor: pointer;
   font-size: 1.6rem;
   color: var(--blanco);
-  margin-left: auto; /* empuja el botón a la derecha */
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
@@ -73,12 +89,16 @@
   transform: scale(1.2);
 }
 
-.btn-toggle-theme.flip {
-  animation: flip 0.5s ease;
+.btn-toggle-theme.rotate {
+  animation: rotate 0.5s ease;
 }
-@keyframes flip {
+@keyframes rotate {
   from { transform: rotateY(0deg); }
-  to   { transform: rotateY(180deg); }
+  to   { transform: rotateY(360deg); }
+}
+
+section {
+  scroll-margin-top: 80px; 
 }
 
 .correo {
@@ -151,3 +171,33 @@
   .iconos-redes a:hover {
     transform: scale(1.1);
   }
+
+  /*Diseño responsivo*/
+/* En PC: El menú se queda en medio */
+@media (min-width: 768px) {
+  .navbar-collapse {
+    flex: 2; /* Le damos más prioridad al centro */
+  }
+}
+
+/* En Móvil: Evitamos que el colapso rompa la línea superior */
+@media (max-width: 767px) {
+  .navbar .container-fluid {
+    flex-wrap: wrap; /* Permite que el menú baje a la fila 2 */
+  }
+
+  .navbar-collapse {
+    flex-basis: 100%; /* El menú abierto ocupa toda la fila de abajo */
+    order: 3; /* Se asegura de ir debajo de logo e iconos */
+    text-align: center;
+    background-color: var(--morado-oscuro);
+    margin-top: 10px;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+/* Ajuste para que el logo no se estire demasiado en móvil */
+  .nav-block-left {
+    flex: 1;
+  }
+}
