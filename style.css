@@ -1,18 +1,26 @@
   :root {
-    --negro: #01012b;
-    --blanco: #d1f7ff;
-    --morado-oscuro:#cb0c59; 
-    /* --morado-oscuro: #467fa1; */
-    --amarillo: #fee801;
+    --negro: #d1f7ff;
+    --blanco: #01012b;
+    --morado-oscuro:#fee801; 
+    --amarillo: #cb0c59;
+    --icono-color:black;
   }
-
+  
   body {
     background-color: var(--negro);
     color: var(--blanco);
     font-family: "Exo", sans-serif;
     font-optical-sizing: auto;
   }
-
+  
+  /* Modo oscuro */
+  body.dark-mode {
+  --negro: #01012b;
+  --blanco: #d1f7ff;
+  --morado-oscuro:#cb0c59; 
+  --amarillo: #fee801;
+  --icono-color:white;
+}
   a {
     color: var(--blanco);
     text-decoration: none;
@@ -21,28 +29,58 @@
     padding-left: 2rem;
   }
 
-  .navbar {
-    padding: 1rem;
-    margin: fit-content;
-    border-radius: 10px;
-    background-color: var(--morado-oscuro);
-    position: sticky;
-  }
+.navbar {
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: var(--morado-oscuro);
+  position: sticky;
+  top: 0; /* para que sticky funcione */
+  margin: 0; /* en lugar de fit-content */
+  z-index: 1000;
+}
 
-  .navbar-collapse {
+
+.navbar-collapse {
     align-items: center;
     justify-content: space-between;
-  }
+}
 
-  .navbar a {
+.navbar .nav-link {
+  font-weight: bold;
+}
+
+.navbar a {
     color: var(--blanco);
-
-    &:hover{
+}
+.navbar a:hover{
     color: var(--amarillo);
-    }
-  }
+}
+  
+/* Botón minimalista */
+.btn-toggle-theme {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  color: var(--blanco);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
 
-  .correo {
+/* Hover con efecto */
+.btn-toggle-theme:hover {
+  color: var(--amarillo);
+  transform: scale(1.2);
+}
+
+.btn-toggle-theme.flip {
+  animation: flip 0.5s ease;
+}
+@keyframes flip {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(180deg); }
+}
+
+.correo {
     background-color: var(--negro);
     color: var(--blanco);
     border: none;
@@ -51,9 +89,9 @@
     padding: 0.5rem 0.5rem;
     border-radius: 5px;
 
-    &:hover {
-      transform: scale(1.1);
-    }
+}
+  .correo:hover {
+    transform: scale(1.1);
   }
   
 .resaltar{
@@ -80,10 +118,10 @@
     border-radius: 5px;
     transition: background-color 0.3s ease;
 
-    &:hover {
-      background-color: var(--blanco);
-      color: var(--negro);
-    }
+  }
+  .btn-tarjeta:hover {
+    background-color: var(--blanco);
+    color: var(--negro);
   }
   .seccion-color {
     color: var(--blanco);
@@ -103,7 +141,7 @@
   }
 
   .iconos-redes i {
-    color: white;
+    color: var(--icono-color);
     font-size: 2rem;
     margin: 0 10px;
     transition: all 0.2s ease-in;
