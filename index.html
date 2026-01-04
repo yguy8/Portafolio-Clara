@@ -22,7 +22,7 @@
   <div class="container-fluid d-flex align-items-center justify-content-between">
   <!--marca-logo-->
     <div class="nav-block-left">
-      <a class="navbar-brand" href="bootstrap.html">Clara</a>
+      <a class="navbar-brand" href="index.html">Clara</a>
     </div>
 <!--Opciones del menú -->
     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
@@ -47,30 +47,41 @@
   </div>
 </nav>
   <!-- Contenido principal -->
-  <section class="aling-items-stretch">
-    <div class="container mt-5">
-      <div class="row">
-        <div class="col-md-12">
-          <img src="https://i.pinimg.com/736x/21/73/3c/21733c13791917adb32f70c729517d69.jpg" alt="foto de perfil"
-            class="img-fluid rounded-circle mx-auto d-block" width="200" height="200">
-          <h2 class="text-center fw-bolder" id="sobre-mi">Clara Jenhee</h2>
-          <p class="text-center resaltar fw-bold">Ingeniera de sistemas computacionales</p>
-        </div>
-        <div class="text-center fw-bold">
-          <p>Me gusta construir cosas</p>
-        </div>
-        <div class="iconos-redes d-flex flex-wrap align-items-center justify-content-center mt-2 mb-3">
-          <a href="https://github.com/yguy8" target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-github"></i></a>
-          <a href="https://www.linkedin.com/in/clara-jenhee-5aba07360" target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-linkedin"></i></a>
-          <a href="mailto:clara20franco@gmail.com"><button type="button" class="correo">
-              <i class="bi bi-envelope"></i></a>
+<section class="aling-items-stretch hero-section">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12 position-relative">
+        
+        <!-- Grafo animado que parece constelación  -->
+        <canvas id="grafo"></canvas>
+
+        <!-- Imagen y texto -->
+        <img src="https://i.pinimg.com/736x/21/73/3c/21733c13791917adb32f70c729517d69.jpg" 
+            alt="foto de perfil"
+            class="img-fluid rounded-circle mx-auto d-block perfil" 
+            width="200" height="200">
+        <h2 class="text-center fw-bolder" id="sobre-mi">Clara Jenhee</h2>
+        <p class="text-center resaltar fw-bold">Ingeniera en sistemas computacionales</p>
+      </div>
+
+      <div class="text-center fw-bold">
+        <p>Me gusta construir cosas</p>
+      </div>
+
+      <div class="iconos-redes d-flex flex-wrap align-items-center justify-content-center mt-2 mb-3">
+        <a href="https://github.com/yguy8" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/clara-jenhee-5aba07360" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-linkedin"></i></a>
+        <a href="mailto:clara20franco@gmail.com">
+          <button type="button" class="correo">
+            <i class="bi bi-envelope"></i>
           </button>
-        </div>
+        </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
   <!--Sobre mí-->
   <section>
     <div class="container seccion-color">
@@ -152,9 +163,114 @@
       toggleBtn.innerHTML = nowDark ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon"></i>';
     });
   });
+
+</script>
+
+<script>
+const canvas = document.getElementById("grafo");
+const ctx = canvas.getContext("2d");
+
+canvas.width = canvas.offsetWidth;
+canvas.height = canvas.offsetHeight;
+
+let estrellas = [];
+const numEstrellas = 80;
+
+// Posición del mouse
+let mouse = {
+  x: null,
+  y: null,
+  radius: 150
+};
+
+// Capturar movimiento del mouse
+canvas.addEventListener("mousemove", function(event) {
+  const rect = canvas.getBoundingClientRect();
+  mouse.x = event.clientX - rect.left;
+  mouse.y = event.clientY - rect.top;
+});
+
+// Leer variables CSS
+function getCSSVariable(name) {
+  return getComputedStyle(document.body).getPropertyValue(name).trim();
+}
+
+// Crear nodos (estrellas)
+for (let i = 0; i < numEstrellas; i++) {
+  estrellas.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    radius: Math.random() * 2 + 1,
+    dx: (Math.random() - 0.5) * 0.5,
+    dy: (Math.random() - 0.5) * 0.5
+  });
+}
+
+function dibujar() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  const estrellaColor = getCSSVariable("--estrella-color");
+  const lineaColor = getCSSVariable("--linea-color");
+
+  // Dibujar nodos
+  estrellas.forEach(star => {
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+    ctx.fillStyle = estrellaColor;
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = estrellaColor;
+    ctx.fill();
+
+    star.x += star.dx;
+    star.y += star.dy;
+    if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
+    if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
+  });
+
+  // Conexiones entre nodos
+  for (let i = 0; i < numEstrellas; i++) {
+    for (let j = i + 1; j < numEstrellas; j++) {
+      let dx = estrellas[i].x - estrellas[j].x;
+      let dy = estrellas[i].y - estrellas[j].y;
+      let dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < 60) {
+        ctx.beginPath();
+        ctx.moveTo(estrellas[i].x, estrellas[i].y);
+        ctx.lineTo(estrellas[j].x, estrellas[j].y);
+        ctx.strokeStyle = lineaColor;
+        ctx.stroke();
+      }
+    }
+  }
+
+  // Nodo del mouse
+  if (mouse.x && mouse.y) {
+    ctx.beginPath();
+    ctx.arc(mouse.x, mouse.y, 4, 0, Math.PI * 2);
+    ctx.fillStyle = "var(--amarillo)";
+    ctx.fill();
+
+    estrellas.forEach(star => {
+      let dx = star.x - mouse.x;
+      let dy = star.y - mouse.y;
+      let dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < mouse.radius) {
+        ctx.beginPath();
+        ctx.moveTo(mouse.x, mouse.y);
+        ctx.lineTo(star.x, star.y);
+        ctx.strokeStyle = lineaColor;
+        ctx.stroke();
+      }
+    });
+  }
+
+  requestAnimationFrame(dibujar);
+}
+
+dibujar();
 </script>
 
 </body>
-
-
 </html>
