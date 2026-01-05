@@ -142,6 +142,7 @@
   </script>
   
   <script>
+    //Código para el boton de tema oscuro o claro
   document.addEventListener("DOMContentLoaded", () => {
     const toggleBtn = document.getElementById("toggle-dark");
 
@@ -167,6 +168,7 @@
 </script>
 
 <script>
+  //dibujo de fondo en el hero Gráfo
 const canvas = document.getElementById("grafo");
 const ctx = canvas.getContext("2d");
 
@@ -195,7 +197,7 @@ function getCSSVariable(name) {
   return getComputedStyle(document.body).getPropertyValue(name).trim();
 }
 
-// Crear nodos (estrellas)
+// Crear nodos (estrellas/puntos)
 for (let i = 0; i < numEstrellas; i++) {
   estrellas.push({
     x: Math.random() * canvas.width,
