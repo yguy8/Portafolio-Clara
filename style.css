@@ -4,9 +4,8 @@
   --bg-acento: #17bbc1;            
   --color-destacado: #700bb3;      
   --icono-color: #01012b;
-  --bg-hover: #d1f7ff;             
-  --estrella-color: rgba(1, 1, 43, 0.15);
-  --linea-color: rgba(1, 1, 43, 0.1);
+  --bg-hover: #d1f7ff; 
+  --linea-color: rgba(1, 1, 43, 0.1);            
 }
 
 html {
@@ -26,9 +25,8 @@ body.dark-mode {
   --texto-principal: #d1f7ff;
   --bg-acento: #cb0c59; 
   --color-destacado: #fee801;
-  --icono-color: white;
+  --icono-color: rgb(240, 253, 255);
   --bg-hover: #2F3EAB;
-  --estrella-color: hsla(200, 14%, 96%, 0.235);
   --linea-color: hsla(200, 14%, 96%, 0.235);
 }
 
@@ -39,6 +37,7 @@ a {
 
 h2 {
   padding-left: 2rem;
+  letter-spacing: 1px;
 }
 
 .marca {
@@ -50,7 +49,6 @@ h2 {
 
 .navbar {
   padding: 1rem;
-  border-radius: 10px;
   background-color: var(--bg-acento);
   position: sticky;
   top: 0;
@@ -152,15 +150,55 @@ h2 {
   font-size: larger;
 }
 
-#proyectos { 
-  scroll-margin-top: 100px; 
-} 
 
+/*stack tecnológico*/
+.tech-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: 90px;
+  height: 90px;
+  background-color: var(--bg-hover); 
+  border: 2px solid var(--linea-color);
+  border-radius: 12px;
+  cursor: default; 
+  user-select: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+}
+
+.tech-chip:hover {
+  background-color: var(--bg-principal);
+  border-color: var(--color-destacado);
+  transform: scale(1.1);
+}
+
+.tech-chip i {
+  font-size: 2rem;
+  color: var(--texto-principal) !important; 
+  transition: color 0.3s ease;
+}
+
+.tech-chip:hover i {
+  color: var(--color-destacado) !important;
+}
+
+.tech-chip span {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--texto-principal);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/*Tarjetas de los proyectos*/
 .tarjeta {
   background-color: var(--bg-acento);
   color: var(--texto-principal);
   border-radius: 10px;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .btn-tarjeta {
@@ -175,6 +213,14 @@ h2 {
 .btn-tarjeta:hover {
   background-color: var(--texto-principal);
   color: var(--bg-principal);
+}
+
+.imagen-proyecto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.9); 
+  min-height: 180px;
 }
 
 .seccion-color {
@@ -192,6 +238,36 @@ footer {
   display: flex;
   flex-direction: column;
   min-height: 300px;
+}
+
+/* Contenedor sutil para las acciones de contacto */
+.contacto-wrapper {
+  padding: 10px 12px;
+  border-radius: 50px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.contacto-wrapper:hover {
+  border-color: var(--resaltar); 
+  background: rgba(128, 128, 128, 0.15);
+}
+
+.btn-copy-js, .btn-contact-js {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.btn-copy-js:hover, .btn-contact-js:hover {
+  color: var(--resaltar);
+}
+
+.derechos {
+  margin-top: 25px;
+  font-size: 0.9rem;
+  color: var(--texto-principal);
 }
 
 .iconos-redes i {

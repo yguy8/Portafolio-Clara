@@ -12,8 +12,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <!-- CSS -->
   <link rel="stylesheet" href=style.css>
-  <link rel="icon" href="https://terek.dev/assets/images/favicon.png" type="image/png">
+  <!-- favivon -->
+  <link rel="icon" href="" type="image/png">
 </head>
 
 <body>
@@ -30,7 +34,7 @@
         <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
         <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
         <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
-        <li class="nav-item"><a class="nav-link" href="mailto:clara20franco@gmail.com">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li> 
       </ul>
     </div>
     <!--Boton tema claro/oscuro-->
@@ -47,7 +51,7 @@
   </div>
 </nav>
   <!-- Contenido principal -->
-<section class="aling-items-stretch hero-section">
+<section class="align-items-stretch hero-section">
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-12 position-relative">
@@ -60,7 +64,7 @@
             alt="foto de perfil"
             class="img-fluid rounded-circle mx-auto d-block perfil" 
             width="200" height="200">
-        <h2 class="text-center fw-bolder" id="sobre-mi">Clara Jenhee</h2>
+        <h2 class="text-center fw-bolder marca" style="font-size: 30px;" id="sobre-mi">Clara Jenhee</h2>
         <p class="text-center resaltar fw-bold">Ingeniera en sistemas computacionales</p>
       </div>
 
@@ -73,11 +77,17 @@
           <i class="bi bi-github"></i></a>
         <a href="https://www.linkedin.com/in/clara-jenhee-5aba07360" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" title="Linkedin">
           <i class="bi bi-linkedin"></i></a>
-        <a href="mailto:clara20franco@gmail.com" data-bs-toggle="tooltip" title="Correo">
-          <button type="button" class="correo">
+        <div class="contacto-wrapper d-inline-flex align-items-center">
+          <!--Redactar correo-->
+          <a href="javascript:void(0)" class="btn-contact-js" data-bs-toggle="tooltip" title="Redactar correo">
             <i class="bi bi-envelope"></i>
-          </button>
-        </a>
+          </a>
+          <span class="ms-2 me-2" style="opacity: 0.3;">|</span>
+          <!--Copiar correo-->
+          <a href="javascript:void(0)" class="btn-copy-js" data-bs-toggle="tooltip" title="Copiar dirección">
+            <i class="bi bi-clipboard-plus"></i>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -86,53 +96,155 @@
   <section id="sobre-mi">
     <div class="container seccion-color">
       <h2 id="sobre-mi" class="text-left "> <i class="bi bi-person iconos-redes align-items-left"></i> Sobre mí </h2>
-      <p class="sobre-mi">Hola, soy Clara,  <b class="resaltar">me fascina el desarrollo de
-        software y hardware.</b><br> Comencé a los 16 años, creando mis primeras páginas web. <br> Me
-        entusiasma la capacidad del código para transformar ideas en realidad. Disfruto cada día aprendiendo nuevas
-        habilidades y desarrollando <b class="resaltar">proyectos innovadores </b>donde la tecnología es mi mejor aliada.</p>
+    <p class="sobre-mi">
+      Hola, soy Clara. Me fascina el <b class="resaltar">desarrollo de software y hardware</b>; para mí, el código es la herramienta definitiva para <b class="resaltar">transformar ideas en realidad</b>.
+      <br><br>
+      Comencé este viaje a los 16 años de forma autodidacta y desde entonces veo la tecnología como un taller de creación constante. Actualmente, curso la <b class="resaltar">Ingeniería en Sistemas Computacionales</b> en UTEL, donde combino la disciplina académica con la construcción de proyectos funcionales e innovadores.
+    </p>
     </div>
   </section>
+
+  <!-- Stack Tecnológico -->
+  <section id="stack-tecnologico">
+  <div class="container seccion-color">
+    <h2 class="text-left mb-4">
+      <i class="bi bi-box iconos-redes align-items-left"></i> Stack Tecnológico
+    </h2>
+    
+    <div class="d-flex flex-wrap gap-4 mt-8 justify-content-center">
+      <div class="tech-chip">
+        <i class="devicon-python-plain colored"></i>
+        <span>Python</span>
+      </div>
+
+      <div class="tech-chip">
+        <i class="devicon-javascript-plain colored"></i>
+        <span>JavaScript</span>
+      </div>
+
+      <div class="tech-chip">
+        <i class="devicon-cplusplus-plain colored"></i>
+        <span>C++</span>
+      </div>
+
+      <div class="tech-chip">
+        <i class="devicon-typescript-plain colored"></i>
+        <span>TypeScript</span>
+      </div>
+
+      <div class="tech-chip">
+        <i class="devicon-tailwindcss-original colored"></i>
+        <span>Tailwind</span>
+      </div>
+
+      <div class="tech-chip">
+        <i class="devicon-bash-plain"></i>
+        <span>Shell</span>
+      </div>
+      
+      <div class="tech-chip">
+        <i class="devicon-html5-plain colored"></i>
+        <span>HTML</span>
+      </div>
+      <div class="tech-chip">
+        <i class="devicon-css3-plain colored"></i>
+        <span>CSS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
   <!--Proyectos-->
   <section id="proyectos">
-    <div class="container seccion-color">
-    <h2 id="proyectos" class="text-left"> <i class="bi bi-code iconos-redes align-items-left"></i> Proyectos</h2>
+  <div class="container seccion-color">
+    <h2 class="text-left mb-4">
+      <i class="bi bi-code iconos-redes align-items-left"></i> Proyectos
+    </h2>
 
-      <div class="seccion-color">
-        <div class="card mb-3 tarjeta">
-          <img src="" class=" card-img-right" alt="Isla del color" width="40%" height="40%">
-          <div class="card-body">
-            <h5 class="card-title">Isla del color</h5>
-            <p class="card-text">Descripción</p>
-            <a href="#" class="btn btn-tarjeta">Ver Proyecto</a>
+    <div class="seccion-color">
+      
+      <div class="card mb-4 tarjeta overflow-hidden">
+        <div class="row g-0 align-items-center">
+          <div class="col-4 col-md-3">
+            <img src="kraftPhoto.png" class="img-fluid rounded-start imagen-proyecto" alt="Kraft">
           </div>
-        </div>
-        <div class="card mb-3 tarjeta">
-          <img src="" class="card-img-top" alt="proyecto 2">
-          <div class="card-body">
-            <h5 class="card-title">Proyecto 2</h5>
-            <p class="card-text">Descripción breve del proyecto 2.</p>
-            <a href="#" class="btn btn-tarjeta">Ver Proyecto</a>
+          <div class="col-8 col-md-9">
+            <div class="card-body">
+              <h5 class="card-title">Kraft</h5>
+              <p class="card-text">
+                <b class="resaltar">Software de autor</b> diseñado para la productividad personal. Un sistema de documentación minimalista  <b class="resaltar"></b>.
+              </p>
+              <p class="mb-3">
+                <span class="badge bg-dark">TypeScript</span>
+                <span class="badge bg-dark">Next.js</span>
+                <span class="badge bg-dark">Convex</span>
+                <span class="badge bg-dark">TailwindCSS</span>
+              </p>
+              <div class="d-flex gap-2">
+                <a href="https://github.com/yguy8/kraft" class="btn btn-tarjeta">Ver Proyecto</a>
+                <a href="#" class="btn btn-tarjeta btn-outline">Demo Live</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      <div class="card mb-4 tarjeta overflow-hidden">
+        <div class="row g-0 align-items-center">
+          <div class="col-4 col-md-3">
+            <img src="Hunter.png" class="img-fluid rounded-start imagen-proyecto" alt="Hunter">
+          </div>
+          <div class="col-8 col-md-9">
+            <div class="card-body">
+              <h5 class="card-title">Hunter</h5>
+              <p class="card-text">
+                Plataforma de comparación inteligente que <b class="resaltar">rastrea precios</b> en múltiples tiendas online, inspirada en la precisión de un cazador digital.
+                </p>
+              <p class="mb-3">
+                <span class="badge bg-dark">Python</span>
+                <span class="badge bg-dark">FastAPI</span>
+                <span class="badge bg-dark">PostgreSQL</span>
+                <span class="badge bg-warning text-dark">Control de Datos</span>
+              </p>
+              <a href="https://github.com/yguy8/Hunter" target="_blank" rel="noopener noreferrer" class="btn btn-tarjeta">
+                Ver Proyecto
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <!--footer-->
-  <footer class="text-center py-3 justify-content-center flex-column align-items-center d-flex">
-    <div>
-      <p>&copy 2026 Clara Jenhee. Todos los derechos reservados.<br>
-        Desarrollado con amor y dedicación.</p>
+  <footer id="contacto" class="text-center py-3 justify-content-center flex-column align-items-center d-flex">
+    <div class="contacto-header">
+      <h2 class="marca"><i class="bi bi-terminal"></i> ¿Hacemos algo juntos?</h2>
+      <p>Siempre estoy buscando nuevos retos en <span class="resaltar">Desarrollo Full-Stack</span> o <span class="resaltar">Ingeniería</span>.</p>
     </div>
     <div class="iconos-redes d-flex flex-wrap align-items-center justify-content-center">
       <a href="https://github.com/yguy8" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" title="GitHub">
         <i class="bi bi-github"></i></a>
       <a href="https://www.linkedin.com/in/clara-jenhee-5aba07360" target="_blank" data-bs-toggle="tooltip" rel="noopener noreferrer" title="Linkedin">
-            <i class="bi bi-linkedin"></i></a>
-      <a href="mailto:clara20franco@gmail.com" class="correo" data-bs-toggle="tooltip" title="Correo">
-        <i class="bi bi-envelope"></i>
-      </a>
+        <i class="bi bi-linkedin"></i></a>
+        <div class="contacto-wrapper d-inline-flex align-items-center">
+          <!--Redactar correo-->
+          <a href="javascript:void(0)" class="btn-contact-js" data-bs-toggle="tooltip" title="Redactar correo">
+            <i class="bi bi-envelope"></i>
+          </a>
+          <span class="ms-2 me-2" style="opacity: 0.3;">|</span>
+          <!--Copiar correo-->
+          <a href="javascript:void(0)" class="btn-copy-js" data-bs-toggle="tooltip" title="Copiar dirección">
+            <i class="bi bi-clipboard-plus"></i>
+          </a>
+        </div>
     </div>
+        <div class="derechos">
+          <p>&copy <span id="year"></span> Clara Jenhee. Todos los derechos reservados.<br>
+          Desarrollado con amor y dedicación.</p>
+        </div>
   </footer>
 
 
@@ -157,127 +269,67 @@
       const nowDark = document.body.classList.toggle("dark-mode");
       localStorage.setItem("theme", nowDark ? "dark" : "light");
 
-      // Animación
-      toggleBtn.classList.add("rotate");
-      setTimeout(() => toggleBtn.classList.remove("rotate"), 400);
-
       toggleBtn.innerHTML = nowDark ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon"></i>';
     });
   });
 
-//para ver el nombre de los iconos de manera elegante 
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
+  //para ver el nombre de los iconos de manera elegante 
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
 })
 
 </script>
 
 <script>
-  //dibujo de fondo en el hero Gráfo
-const canvas = document.getElementById("grafo");
-const ctx = canvas.getContext("2d");
+//Script de correo con las mejoras de seguridad y accersibilidad para copiar o enviar directamente 
 
-canvas.width = canvas.offsetWidth;
-canvas.height = canvas.offsetHeight;
+document.addEventListener("DOMContentLoaded", () => {
+  const user = "clara20franco";
+  const domain = "gmail.com";
+  const emailCompleto = `${user}@${domain}`;
 
-let estrellas = [];
-const numEstrellas = 80;
-
-// Posición del mouse
-let mouse = {
-  x: null,
-  y: null,
-  radius: 150
-};
-
-// Capturar movimiento del mouse
-canvas.addEventListener("mousemove", function(event) {
-  const rect = canvas.getBoundingClientRect();
-  mouse.x = event.clientX - rect.left;
-  mouse.y = event.clientY - rect.top;
-});
-
-// Leer variables CSS
-function getCSSVariable(name) {
-  return getComputedStyle(document.body).getPropertyValue(name).trim();
-}
-
-// Crear nodos (estrellas/puntos)
-for (let i = 0; i < numEstrellas; i++) {
-  estrellas.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    radius: Math.random() * 2 + 1,
-    dx: (Math.random() - 0.5) * 0.5,
-    dy: (Math.random() - 0.5) * 0.5
-  });
-}
-
-function dibujar() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  const estrellaColor = getCSSVariable("--estrella-color");
-  const lineaColor = getCSSVariable("--linea-color");
-
-  // Dibujar nodos
-  estrellas.forEach(star => {
-    ctx.beginPath();
-    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-    ctx.fillStyle = estrellaColor;
-    ctx.shadowBlur = 10;
-    ctx.shadowColor = estrellaColor;
-    ctx.fill();
-
-    star.x += star.dx;
-    star.y += star.dy;
-    if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
-    if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
-  });
-
-  // Conexiones entre nodos
-  for (let i = 0; i < numEstrellas; i++) {
-    for (let j = i + 1; j < numEstrellas; j++) {
-      let dx = estrellas[i].x - estrellas[j].x;
-      let dy = estrellas[i].y - estrellas[j].y;
-      let dist = Math.sqrt(dx * dx + dy * dy);
-
-      if (dist < 60) {
-        ctx.beginPath();
-        ctx.moveTo(estrellas[i].x, estrellas[i].y);
-        ctx.lineTo(estrellas[j].x, estrellas[j].y);
-        ctx.strokeStyle = lineaColor;
-        ctx.stroke();
-      }
-    }
-  }
-
-  // Nodo del mouse
-  if (mouse.x && mouse.y) {
-    ctx.beginPath();
-    ctx.arc(mouse.x, mouse.y, 4, 0, Math.PI * 2);
-    ctx.fillStyle = "var(--amarillo)";
-    ctx.fill();
-
-    estrellas.forEach(star => {
-      let dx = star.x - mouse.x;
-      let dy = star.y - mouse.y;
-      let dist = Math.sqrt(dx * dx + dy * dy);
-
-      if (dist < mouse.radius) {
-        ctx.beginPath();
-        ctx.moveTo(mouse.x, mouse.y);
-        ctx.lineTo(star.x, star.y);
-        ctx.strokeStyle = lineaColor;
-        ctx.stroke();
-      }
+  //lógica para abrir correo
+  document.querySelectorAll('.btn-contact-js').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = `mailto:${emailCompleto}`;
     });
-  }
+  });
 
-  requestAnimationFrame(dibujar);
-}
+  // copiar correo
+  document.querySelectorAll('.btn-copy-js').forEach(el => {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      navigator.clipboard.writeText(emailCompleto).then(() => {
+        //tooltip para mostrar que se copio el correo
+        const tooltipElement = this;
+        const tooltip = bootstrap.Tooltip.getInstance(tooltipElement);
+        const originalTitle = tooltipElement.getAttribute('data-bs-original-title') || tooltipElement.getAttribute('title');
 
-dibujar();
+        tooltipElement.setAttribute('data-bs-original-title', '¡Copiado!');
+        tooltip.show();
+
+        // Restaurar tooltip original después de 1.5 segundos
+        setTimeout(() => {
+          tooltipElement.setAttribute('data-bs-original-title', originalTitle);
+          tooltip.hide();
+        }, 1500);
+      }).catch(err => {
+        console.error('Error al copiar: ', err);
+      });
+    });
+  });
+});
+</script>
+
+<script>
+  //Cambiar el año del footer 
+
+  document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("year").textContent = new Date().getFullYear();
+  });
 </script>
 
 </body>
